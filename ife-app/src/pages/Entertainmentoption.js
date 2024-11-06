@@ -13,15 +13,51 @@ const RightWrapper = styled.div``;
 const ContentWrapper = styled.div``;
 const SearchBar = styled.div``;
 
+const defaultImages = [9, 10, 12, 13];
+
+
 export default function Entertainmentoption() {
 
     const [isLoading, setIsLoading] = useState(true);
+    const [displayImages, setDisplayImages] = useState([]);
+
 
     useEffect(() => {
-        setIsLoading(false); // Trigger fade-in animations on component mount
+        setIsLoading(false);
+        
+        try {
+            const rawData = localStorage.getItem('recommendation');
+            if (rawData) {
+                const parsedData = JSON.parse(rawData);
+                if (parsedData?.recommendations?.length > 0) {
+                    // Use recommendations if they exist
+                    const recommendations = parsedData.recommendations.slice(0, 4);
+                    setDisplayImages(recommendations.map(item => ({
+                        imageNumber: parseInt(item.itemId) - 101,
+                        itemId: item.itemId
+                    })));
+                } else {
+                    // Use default images
+                    setDisplayImages(defaultImages.map(num => ({
+                        imageNumber: num,
+                        itemId: num + 101
+                    })));
+                }
+            } else {
+                // Use default images if no recommendations
+                setDisplayImages(defaultImages.map(num => ({
+                    imageNumber: num,
+                    itemId: num + 101
+                })));
+            }
+        } catch (error) {
+            // Use default images in case of any error
+            setDisplayImages(defaultImages.map(num => ({
+                imageNumber: num,
+                itemId: num + 101
+            })));
+        }
     }, []);
-
-    const itemId = JSON.parse(localStorage.getItem('recommendation')).recommendations.slice(0, 4);
 
     return(
         <Container className="flex w-full h-full">
@@ -55,13 +91,31 @@ export default function Entertainmentoption() {
 
                             <RightWrapper>
                                 <div className="grid grid-cols-2 gap-4">
-                                    {itemId.map((item, index) => (
-                                        console.log(parseInt(item.itemId)),
-                                        <div 
-                                            key={index} 
-                                            className={`bg-[url('./movie_posters/image_${parseInt(item.itemId) - parseInt(101)}.jpg')] bg-cover rounded-xl h-[290px] w-full`}
-                                        />
-                                    ))}
+                                    {displayImages.map((item, index) => {
+                                        try {
+                                            const imagePath = require(`../movie_posters/image_${item.imageNumber}.jpg`);
+                                            return (
+                                                <div 
+                                                    key={index} 
+                                                    style={{ 
+                                                        backgroundImage: `url(${imagePath})`,
+                                                        backgroundSize: 'cover',
+                                                    }}
+                                                    className="rounded-xl h-[290px] w-full"
+                                                />
+                                            );
+                                        } catch (error) {
+                                            console.error(`Failed to load image ${item.imageNumber}:`, error);
+                                            return (
+                                                <div 
+                                                    key={index} 
+                                                    className="rounded-xl h-[290px] w-full bg-gray-200 flex items-center justify-center"
+                                                >
+                                                    Image not available
+                                                </div>
+                                            );
+                                        }
+                                    })}
                                 </div>
                             </RightWrapper>
                         </ContentWrapper>
