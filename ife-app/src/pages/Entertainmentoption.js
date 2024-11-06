@@ -41,7 +41,7 @@ export default function Entertainmentoption() {
                     <ContentWrapper className="flex font-semibold text-[25px] mt-8 gap-7">
                         <RightWrapper className="flex flex-col">
                             <div className=" mb-4 font-semibold">Featured</div>
-                            <div className="bg-black rounded-2xl relative h-[600px] w-[350px] flex items-end p-8">
+                            <div className="bg-[url('./movie_posters/image_83.jpg')] bg-cover rounded-2xl relative h-[600px] w-[350px] flex items-end p-8">
                                 <Buttonfull text="Watch Now" onClick={() => console.log("Watch Now clicked")} />
                             </div>
                         </RightWrapper>
