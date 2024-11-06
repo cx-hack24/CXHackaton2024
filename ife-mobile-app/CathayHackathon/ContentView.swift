@@ -297,7 +297,7 @@ struct ScannerView: View {
                        print("Recognized Items: \(vm.recognizedItems)")
                        for item in vm.recognizedItems {
                            if let data = extractData(from: item) {
-                               sendDataToBackend(data: self.userData, seatId: "124A")
+                               sendDataToBackend(data: self.userData, seatId: data)
                            }
                        }
                    }) {
@@ -368,7 +368,7 @@ struct ScannerView: View {
     }
     
     private func sendDataToBackend(data: [String: Any], seatId: String) {
-        print("entereddd ======== ", data)
+        print("entereddd ======== ", data, seatId)
         guard let url = URL(string: "http://a0eb4493f3aeb48dc99786a3b979009f-1295882383.ap-southeast-1.elb.amazonaws.com/ife/recommendation/\(seatId)") else { return }
         
         var request = URLRequest(url: url)
@@ -391,6 +391,7 @@ struct ScannerView: View {
             }
             
             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                print(response, "response")
                 print("Data successfully sent to backend")
                 DispatchQueue.main.async {
                     showSuccessScreen = true
