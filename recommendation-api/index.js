@@ -1,6 +1,7 @@
 import express from 'express';
 import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 const config = {
@@ -12,6 +13,7 @@ const config = {
 };
 
 const app = express();
+app.use(cors());
 
 // Middleware to log requests
 app.use((req, res, next) => {

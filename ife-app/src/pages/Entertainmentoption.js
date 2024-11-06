@@ -21,6 +21,8 @@ export default function Entertainmentoption() {
         setIsLoading(false); // Trigger fade-in animations on component mount
     }, []);
 
+    const itemId = JSON.parse(localStorage.getItem('recommendation')).recommendations.slice(0, 4);
+
     return(
         <Container className="flex w-full h-full">
             <Sidebar fadeIn={!isLoading}/>
@@ -53,10 +55,11 @@ export default function Entertainmentoption() {
 
                             <RightWrapper>
                                 <div className="grid grid-cols-2 gap-4">
-                                    {[...Array(4)].map((_, index) => (
+                                    {itemId.map((item, index) => (
+                                        console.log(parseInt(item.itemId)),
                                         <div 
                                             key={index} 
-                                            className="bg-black rounded-xl h-[290px] w-full"
+                                            className={`bg-[url('./movie_posters/image_${parseInt(item.itemId) - parseInt(101)}.jpg')] bg-cover rounded-xl h-[290px] w-full`}
                                         />
                                     ))}
                                 </div>

@@ -43,8 +43,9 @@ export default function Homepage() {
 
         const checkRecommendation = async () => {
             try {
-                const response = await fetch(`http://a9c6eb605422843e3bf1f590314927c8-2062735919.ap-southeast-1.elb.amazonaws.com/ife/recommendation/LAX25A`);
-                
+                // const response = await fetch(`http://a9c6eb605422843e3bf1f590314927c8-2062735919.ap-southeast-1.elb.amazonaws.com/ife/recommendation/LAX25A`);
+                const response = await fetch(`http://localhost:3000/recommendations?userId=2`);
+
                 if (response.status === 200) {
                     const data = await response.json();
                     localStorage.setItem('recommendation', JSON.stringify(data));
@@ -54,11 +55,11 @@ export default function Homepage() {
                     }, 500);
                     clearTimeout(intervalId);
                 } else {
-                    intervalId = setTimeout(checkRecommendation, 10000);
+                    intervalId = setTimeout(checkRecommendation, 10000000);
                 }
             } catch (error) {
                 console.error("Error checking recommendation:", error);
-                intervalId = setTimeout(checkRecommendation, 10000);
+                intervalId = setTimeout(checkRecommendation, 10000000);
             }
         };
 
