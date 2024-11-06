@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ife-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ife-api
+  template:
+    metadata:
+      labels:
+        app: ife-api
+    spec:
+      containers:
+        - name: ife-api
+          image: 288761739724.dkr.ecr.ap-southeast-1.amazonaws.com/cx-hack24/ife-api:v1.1.0-amd64
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
