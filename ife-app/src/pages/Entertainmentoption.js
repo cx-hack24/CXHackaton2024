@@ -13,7 +13,7 @@ const RightWrapper = styled.div``;
 const ContentWrapper = styled.div``;
 const SearchBar = styled.div``;
 
-const defaultImages = [9, 10, 12, 13];
+const defaultImages = [23, 42, 64, 20];
 
 
 export default function Entertainmentoption() {
