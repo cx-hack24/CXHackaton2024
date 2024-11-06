@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ife-api
-          image: 2396608814647.dkr.ecr.ap-southeast-1.amazonaws.com/cxhack24/ife-api:v1.0.0
+          image: 396608814647.dkr.ecr.ap-southeast-1.amazonaws.com/cxhack24/ife-api:v1.0.0
           ports:
             - containerPort: 3000
           resources:
