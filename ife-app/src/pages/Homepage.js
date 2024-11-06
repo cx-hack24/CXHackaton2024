@@ -107,9 +107,15 @@ export default function Homepage() {
                         Welcome on board!
                     </ContentWrapper>
                     <ContentWrapper className="my-7">
-                        <div className="bg-black/30 p-6 rounded-lg inline-block">
+                        <ContentWrapper className="flex flex-col justify-center items-center bg-black/30 p-6 rounded-lg">
                             {GenerateQRCode('LAX25A')}
-                        </div>
+                            <ContentWrapper className="font-semibold text-white text-[20px] mt-5">
+                                Seat ID
+                            </ContentWrapper>
+                            <ContentWrapper className="font-medium text-white text-[30px]">
+                                LAX25A
+                            </ContentWrapper>
+                        </ContentWrapper>
                     </ContentWrapper>
                     <ContentWrapper className="my-3">
                         <Buttonfull url="/entertainment" text="Let's Start!"/>
