@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A4389961-43A2-4C6C-BE9A-C18C08058CAD"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4C92ACB-C731-4FAE-8503-E6094D2DA0A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CathayHackathon/DataScannerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "Coordinator"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "A4C92ACB-C731-4FAE-8503-E6094D2DA0A9 - a52ad439d1b86c18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CathayHackathon.DataScannerView.Coordinator.dataScanner(_: VisionKit.DataScannerViewController, didTapOn: VisionKit.RecognizedItem) -&gt; ()"
+                  moduleName = "CathayHackathon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shannonsie/Desktop/CathayHackathon/CathayHackathon/DataScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "A4C92ACB-C731-4FAE-8503-E6094D2DA0A9 - a52ad439d1b86c18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CathayHackathon.DataScannerView.Coordinator.dataScanner(_: VisionKit.DataScannerViewController, didTapOn: VisionKit.RecognizedItem) -&gt; ()"
+                  moduleName = "CathayHackathon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shannonsie/Desktop/CathayHackathon/CathayHackathon/DataScannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
