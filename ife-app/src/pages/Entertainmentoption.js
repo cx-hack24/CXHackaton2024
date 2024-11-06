@@ -79,9 +79,11 @@ export default function Entertainmentoption() {
                     <ContentWrapper className="flex font-semibold text-[25px] mt-8 gap-7">
                         <RightWrapper className="flex flex-col">
                             <div className=" mb-4 font-semibold">Featured</div>
-                            <div className="bg-[url('./movie_posters/image_83.jpg')] bg-cover rounded-2xl relative h-[600px] w-[350px] flex items-end p-8">
-                                <Buttonfull text="Watch Now" onClick={() => console.log("Watch Now clicked")} />
-                            </div>
+                            <img 
+                                src={require(`../movie_posters/image_83.jpg`)}
+                                alt="Featured movie"
+                                className="rounded-2xl h-[600px] w-[700px] object-cover"
+                            />
                         </RightWrapper>
                         <ContentWrapper className="w-full flex flex-col">
                             <RightWrapper className="flex justify-between mb-4">
@@ -95,24 +97,22 @@ export default function Entertainmentoption() {
                                         try {
                                             const imagePath = require(`../movie_posters/image_${item.imageNumber}.jpg`);
                                             return (
-                                                <div 
-                                                    key={index} 
-                                                    style={{ 
-                                                        backgroundImage: `url(${imagePath})`,
-                                                        backgroundSize: 'cover',
-                                                    }}
+                                                <img 
+                                                    key={index}
+                                                    src={imagePath}
+                                                    alt={`Movie poster ${item.imageNumber}`}
                                                     className="rounded-xl h-[290px] w-full"
                                                 />
                                             );
                                         } catch (error) {
                                             console.error(`Failed to load image ${item.imageNumber}:`, error);
                                             return (
-                                                <div 
-                                                    key={index} 
-                                                    className="rounded-xl h-[290px] w-full bg-gray-200 flex items-center justify-center"
-                                                >
-                                                    Image not available
-                                                </div>
+                                                <img 
+                                                    key={index}
+                                                    src={`../movie_posters/image_${defaultImages[0]}.jpg`}
+                                                    alt="Default movie poster"
+                                                    className="rounded-xl h-[300px] w-full"
+                                                />
                                             );
                                         }
                                     })}

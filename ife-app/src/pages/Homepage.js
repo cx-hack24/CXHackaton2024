@@ -43,8 +43,8 @@ export default function Homepage() {
 
         const checkRecommendation = async () => {
             try {
-                // const response = await fetch(`http://a9c6eb605422843e3bf1f590314927c8-2062735919.ap-southeast-1.elb.amazonaws.com/ife/recommendation/LAX25A`);
-                const response = await fetch(`http://localhost:3000/recommendations?userId=2`);
+                const response = await fetch(`http://a0eb4493f3aeb48dc99786a3b979009f-1295882383.ap-southeast-1.elb.amazonaws.com/ife/recommendation/LAX25A`);
+                // const response = await fetch(`http://localhost:3000/ife/recommendation/LAX25A`);
 
                 if (response.status === 200) {
                     const data = await response.json();
@@ -55,11 +55,11 @@ export default function Homepage() {
                     }, 500);
                     clearTimeout(intervalId);
                 } else {
-                    intervalId = setTimeout(checkRecommendation, 10000000);
+                    intervalId = setTimeout(checkRecommendation, 4000);
                 }
             } catch (error) {
                 console.error("Error checking recommendation:", error);
-                intervalId = setTimeout(checkRecommendation, 10000000);
+                intervalId = setTimeout(checkRecommendation, 4000);
             }
         };
 
@@ -108,7 +108,7 @@ export default function Homepage() {
                     </ContentWrapper>
                     <ContentWrapper className="my-7">
                         <div className="bg-black/30 p-6 rounded-lg inline-block">
-                            {GenerateQRCode('/LAX25A')}
+                            {GenerateQRCode('LAX25A')}
                         </div>
                     </ContentWrapper>
                     <ContentWrapper className="my-3">
